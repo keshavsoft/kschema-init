@@ -10,7 +10,7 @@ const __dirname = path.dirname(__filename);
 export default (arg) => {
     const folderName = arg || "KehavSoft1";
 
-    const source = path.join(__dirname, "template", "v2");
+    const source = path.join(__dirname, "template");
     const destination = path.join(process.cwd(), folderName);
 
     fs.mkdirSync(destination, { recursive: true });

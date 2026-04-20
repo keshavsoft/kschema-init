@@ -1,20 +1,13 @@
-#!/usr/bin/env node
+import packageJson from "../package.json" with { type: "json" };
 
-import init from "../commands/init.js";
-import test from "../commands/test.js";
+import { v2Func } from "./v2/start.js";
 
-const cmd = process.argv[2];
-const arg = process.argv[3];
+switch (packageJson?.version.split(".")[1]) {
+    case "2":
+        v2Func();
 
-switch (cmd) {
-    case "init":
-        init(arg);
-        break;
-
-    case "test":
-        test(arg);
         break;
 
     default:
         console.log("Usage: kschema <init|test> [name]");
-}
+};

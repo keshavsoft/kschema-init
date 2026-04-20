@@ -1,0 +1,15 @@
+{
+  "name": "KeshavSoft",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "read.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@keshavsoft/kschema": "^1.7.4"
+  }
+}

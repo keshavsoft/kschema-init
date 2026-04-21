@@ -5,8 +5,10 @@ import { fileURLToPath } from "url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+const defaultFolderName = "KehavSoft";
+
 export default ({ inTemplate, inFolderName }) => {
-    const folderName = inFolderName || "KehavSoft1";
+    const folderName = inFolderName || `kschema-${inTemplate}-${Date.now()}`;
     let source;
 
     switch (inTemplate) {

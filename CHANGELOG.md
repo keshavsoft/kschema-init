@@ -1,39 +1,25 @@
-# CHANGELOG
+# Changelog
 
 All notable changes to this project will be documented in this file.
 
+The format is based on Keep a Changelog.
+
 ---
 
-## [1.7.1] - 2026-04-18
+## [1.3.1] - 2026-04-21
 
 ### Added
-
-* Initial release of kschema
-* Config loader (`loadConfig`, `getConfig`)
-* File-based JSON storage
-* Schema-driven table handling
-* Primary key detection (`getPrimaryKey`)
-* Auto-increment primary key (`attachPrimaryKey`)
-* CRUD operations:
-
-  * insert
-  * insertStrict
-  * get
-  * findByPk
-  * update
-  * delete
+- Initial release of `@keshavsoft/kschema-cli`
+- CLI command: `kschema init <template> [projectName]`
+- Template support:
+  - basic
+  - express
+- Auto project generation using file copy
+- Auto folder naming when projectName not provided:
+  - `kschema-<template>-<timestamp>`
+- Modular command structure (`init`, `test`)
+- Version-based CLI execution (`cliVersion` support)
 
 ### Notes
-
-* Primary key is dynamically resolved from schema
-* Data stored as JSON files
-* Minimal, dependency-free design
-
-## [1.7.3] - 2026-04-19
-
-### filer and find columns perfect
-
-## [1.7.4]
-
-### delete multi added
-
+- Designed as a wrapper over kschema ecosystem
+- Focused on simplicity and fast project setup

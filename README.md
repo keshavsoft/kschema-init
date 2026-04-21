@@ -1,95 +1,38 @@
-# KeshavSoft
+# @keshavsoft/kschema-cli
 
-Simple tools. Clean architecture. Fast development.
-
----
-
-## @keshavsoft/kschema
-
-A lightweight schema-driven JSON database for Node.js.
-
----
+CLI to generate projects using templates.
 
 ## Install
 
-npm i @keshavsoft/kschema
+npm install -g @keshavsoft/kschema-cli
 
----
+or
+
+npx @keshavsoft/kschema-cli init express MyApp
 
 ## Usage
 
-import { kschema } from "@keshavsoft/kschema";
+kschema init <template> [projectName]
 
-kschema.loadConfig({ dataPath: "./data" });
+## Examples
 
-const users = kschema.table("users");
+kschema init basic MyApp
+kschema init express MyServer
+kschema init express
 
-users.insert({ name: "keshav" });
+## Templates
 
-const data = users.get();
+basic
+express
 
-console.log(data);
+## Behavior
 
----
+- If projectName is provided → folder created with that name  
+- If not provided → auto name generated  
 
-## API
+Example auto name:
+kschema-express-<timestamp>
 
-Create
+## Output
 
-users.insert(record);
-users.insertStrict(record);
-
-Read
-
-users.get();
-users.findByPk(id);
-
-Filter
-
-users.filterByPk(id);
-users.filterByColumns({ name: "keshav" });
-
-Update
-
-users.update(record);
-
-Delete
-
-users.delete(id);
-users.deleteByColumns({ name: "keshav" });
-
----
-
-## Features
-
-* File-based JSON storage
-* Schema-driven design
-* Auto primary key
-* Simple CRUD API
-* Zero dependencies
-
----
-
-## Links
-
-GitHub: https://github.com/keshavsoft/kschema
-NPM: https://www.npmjs.com/package/@keshavsoft/kschema
-Website: https://keshavsoft.com
-
----
-
-## Contact
-
-Email: founder@keshavsoft.com
-
----
-
-## About
-
-KeshavSoft builds simple and practical developer tools focused on clarity, speed, and real-world usage.
-
----
-
-## License
-
-MIT License — see LICENSE file
+Creates a new folder with selected template files.

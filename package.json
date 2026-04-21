@@ -1,7 +1,15 @@
 {
   "name": "@keshavsoft/kschema-cli",
   "version": "1.3.5",
-  "cliVersion": "3",
+  "description": "CLI to scaffold projects using templates",
+  "keywords": [
+    "cli",
+    "scaffold",
+    "templates",
+    "node",
+    "project-generator"
+  ],
+  "cliversion": "3",
   "type": "module",
   "bin": {
     "kschema": "./bin/cli.js"

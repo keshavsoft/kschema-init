@@ -5,26 +5,44 @@ import { fileURLToPath } from "url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const defaultFolderName = "KehavSoft";
+const brand = "keshavsoft";
 
 export default ({ inTemplate, inFolderName }) => {
-    const folderName = inFolderName || `kschema-${inTemplate}-${Date.now()}`;
-    let source;
+    const template = resolveTemplate({ inTemplate });
+    const folderName = resolveFolderName({ inFolderName, template });
+    const source = resolveSource({ template });
+    const destination = resolveDestination({ folderName });
 
-    switch (inTemplate) {
-        case "express":
-            source = path.join(__dirname, "template", "express");
-            break;
+    createProject({ source, destination });
 
-        default:
-            source = path.join(__dirname, "template", "basic");
-            break;
-    };
+    logSuccess({ folderName });
+};
 
-    const destination = path.join(process.cwd(), folderName);
+const resolveTemplate = ({ inTemplate }) => {
+    return inTemplate || "basic";
+};
 
+const resolveFolderName = ({ inFolderName, template }) => {
+    return inFolderName || `${brand}-${template}-${Date.now()}`;
+};
+
+const resolveSource = ({ template }) => {
+    return path.join(
+        __dirname,
+        "template",
+        template === "express" ? "express" : "basic"
+    );
+};
+
+const resolveDestination = ({ folderName }) => {
+    return path.join(process.cwd(), folderName);
+};
+
+const createProject = ({ source, destination }) => {
     fs.mkdirSync(destination, { recursive: true });
     fs.cpSync(source, destination, { recursive: true });
+};
 
-    console.log(`Project created in ${folderName}`);
+const logSuccess = ({ folderName }) => {
+    console.log(`[keshavsoft] Project created: ${folderName}`);
 };

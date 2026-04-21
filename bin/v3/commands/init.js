@@ -1,48 +1,18 @@
-import fs from "fs";
-import path from "path";
-import { fileURLToPath } from "url";
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-const brand = "keshavsoft";
+import { decideTemplate } from "./steps/decideTemplate.js";
+import { decideFolderName } from "./steps/decideFolderName.js";
+import { locateSource } from "./steps/locateSource.js";
+import { locateDestination } from "./steps/locateDestination.js";
+import { createProject } from "./steps/createProject.js";
+import { announce } from "./steps/announce.js";
 
 export default ({ inTemplate, inFolderName }) => {
-    const template = resolveTemplate({ inTemplate });
-    const folderName = resolveFolderName({ inFolderName, template });
-    const source = resolveSource({ template });
-    const destination = resolveDestination({ folderName });
+    const template = decideTemplate({ inTemplate });
+    const folderName = decideFolderName({ inFolderName, template });
+
+    const source = locateSource({ template });
+    const destination = locateDestination({ folderName });
 
     createProject({ source, destination });
 
-    logSuccess({ folderName });
-};
-
-const resolveTemplate = ({ inTemplate }) => {
-    return inTemplate || "basic";
-};
-
-const resolveFolderName = ({ inFolderName, template }) => {
-    return inFolderName || `${brand}-${template}-${Date.now()}`;
-};
-
-const resolveSource = ({ template }) => {
-    return path.join(
-        __dirname,
-        "template",
-        template === "express" ? "express" : "basic"
-    );
-};
-
-const resolveDestination = ({ folderName }) => {
-    return path.join(process.cwd(), folderName);
-};
-
-const createProject = ({ source, destination }) => {
-    fs.mkdirSync(destination, { recursive: true });
-    fs.cpSync(source, destination, { recursive: true });
-};
-
-const logSuccess = ({ folderName }) => {
-    console.log(`[keshavsoft] Project created: ${folderName}`);
+    announce({ folderName });
 };

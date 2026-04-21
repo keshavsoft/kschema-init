@@ -6,7 +6,7 @@
   "bin": {
     "kschema": "./bin/cli.js"
   },
-  "homepage": "https://keshavsoft.com",
+  "homepage": "https://cli.keshavsoft.com",
   "repository": {
     "type": "git",
     "url": "https://github.com/keshavsoft/kschema-init"

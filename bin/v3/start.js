@@ -1,7 +1,7 @@
 import init from "./commands/init.js";
 import test from "./commands/test.js";
 
-const v3Func = () => {
+const run = () => {
     const cmd = process.argv[2];
     const template = process.argv[3];
     const folderName = process.argv[4];
@@ -24,4 +24,4 @@ const v3Func = () => {
 
 };
 
-export { v3Func };
+export default run;

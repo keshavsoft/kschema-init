@@ -1,7 +1,7 @@
 import init from "./commands/init.js";
 import test from "./commands/test.js";
 
-const v2Func = () => {
+const run = () => {
     const cmd = process.argv[2];
     const arg = process.argv[3];
 
@@ -20,4 +20,4 @@ const v2Func = () => {
 
 };
 
-export { v2Func };
+export default run;

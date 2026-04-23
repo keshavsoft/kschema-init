@@ -23,3 +23,8 @@ The format is based on Keep a Changelog.
 ### Notes
 - Designed as a wrapper over kschema ecosystem
 - Focused on simplicity and fast project setup
+
+## [1.4.1] - 2026-04-23
+
+### Added
+- made auto code, no cliversion in package, major change

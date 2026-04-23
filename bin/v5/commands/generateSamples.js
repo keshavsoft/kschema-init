@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
 
-import { kschema } from "@keshavsoft/kschema";
+import { schemaMeta } from "@keshavsoft/kschema";
 import { baseTemplate } from "./template/baseTemplate.js";
 
 export default () => {
@@ -11,11 +11,11 @@ export default () => {
         fs.mkdirSync(OUTPUT_DIR, { recursive: true });
     };
 
-    const table = kschema.table("SampleTable");
+    Object.entries(schemaMeta.query).forEach(([key, meta]) => {
 
-    const meta = table.query.findAll.meta;
+        const finalCode = baseTemplate({ body: meta.body });
 
-    const finalCode = baseTemplate({ body: meta.body });
+        fs.writeFileSync(path.join(OUTPUT_DIR, `${key}.js`), finalCode);
 
-    fs.writeFileSync(path.join(OUTPUT_DIR, "findAll.js"), finalCode);
+    });
 };

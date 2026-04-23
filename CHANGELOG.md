@@ -28,3 +28,13 @@ The format is based on Keep a Changelog.
 
 ### Added
 - made auto code, no cliversion in package, major change
+
+## [1.5.2] - 2026-04-23
+
+### Added
+- new cli added generateSamples dependant on kschema npm
+
+## [1.5.3] - 2026-04-23
+
+- cli perfect with samples also, only kschema version need to change
+

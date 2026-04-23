@@ -1,6 +1,6 @@
 {
   "name": "@keshavsoft/kschema-cli",
-  "version": "1.5.1",
+  "version": "1.5.3",
   "description": "CLI to scaffold projects using templates",
   "keywords": [
     "cli",
@@ -10,7 +10,7 @@
     "project-generator"
   ],
   "dependencies": {
-    "@keshavsoft/kschema": "^1.12.1"
+    "@keshavsoft/kschema": "^1.12.3"
   },
   "type": "module",
   "bin": {
